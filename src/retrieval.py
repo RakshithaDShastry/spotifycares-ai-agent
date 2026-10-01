@@ -10,17 +10,26 @@ decision_log.md entry 9 for the reasoning and known limitation.
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from config import (
+    RETRIEVAL_K,
+    RETRIEVAL_MIN_SIMILARITY,
+    TFIDF_MAX_FEATURES,
+    TFIDF_MIN_DF,
+)
 
 
 class ResolutionRetriever:
     def __init__(self, resolved_pairs, max_features=10000, ngram_range=(1, 2), min_df=2):
         self.resolved_pairs = resolved_pairs.reset_index(drop=True)
         self.vectorizer = TfidfVectorizer(
-            max_features=max_features, ngram_range=ngram_range, min_df=min_df
+            max_features=TFIDF_MAX_FEATURES,
+            ngram_range=(1, 2),
+            min_df=TFIDF_MIN_DF,
         )
         self.matrix = self.vectorizer.fit_transform(self.resolved_pairs['text_customer'])
 
-    def retrieve(self, query_text, k=3, min_similarity=0.25):
+    def retrieve(self,query,k=RETRIEVAL_K,min_similarity=RETRIEVAL_MIN_SIMILARITY,):
+        
         """
         Returns up to k historical (customer_text, reply_text, similarity)
         matches above min_similarity, excluding near-exact matches of the
