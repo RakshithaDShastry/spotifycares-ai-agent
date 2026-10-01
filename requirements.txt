@@ -9,3 +9,4 @@ groq>=0.9
 kagglehub>=0.3
 tqdm>=4.66
 python-dotenv>=1.0
+streamlit>=1.38

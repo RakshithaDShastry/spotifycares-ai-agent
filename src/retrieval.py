@@ -36,7 +36,7 @@ class ResolutionRetriever:
         query itself (similarity >= 0.999) to prevent leakage when the
         query is a message that's already in the historical corpus.
         """
-        query_vec = self.vectorizer.transform([query_text])
+        query_vec = self.vectorizer.transform([query])
         similarities = cosine_similarity(query_vec, self.matrix)[0]
         ranked_idx = np.argsort(similarities)[::-1]
 
