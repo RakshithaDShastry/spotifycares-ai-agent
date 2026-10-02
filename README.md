@@ -2,6 +2,8 @@
 
 🔗 **[Try the live demo](https://spotifycares-ai-agent-zdceekkuybonc89jwzuzrq.streamlit.app/)**
 
+![Demo screenshot](assets/demo-screenshot.png)
+
 An AI support agent for **SpotifyCares** (Spotify's Twitter support
 account), built on Kaggle's "Customer Support on Twitter" dataset. It
 classifies incoming customer messages, drafts a reply grounded in how
