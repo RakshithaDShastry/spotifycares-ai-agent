@@ -58,6 +58,17 @@ full development history, including two real bugs found and fixed during
 evaluation (a URL-fabrication issue in reply generation, and an LLM-judge
 miscalibration found via blind human validation).
 
+## Docker
+
+The app is fully containerized. Build and run it locally:
+
+```bash
+docker build -t spotifycares-ai-agent .
+docker run -p 8501:8501 --env-file .env spotifycares-ai-agent
+```
+
+Verified working end-to-end in a local container. A second public Docker-hosted deployment was deliberately skipped: as of late 2026, most free-tier Docker hosting platforms (Koyeb, Render, Hugging Face Docker Spaces) now require a paid plan or a credit card, and the public Streamlit Cloud deployment above already serves as the live demo.
+
 ## Data
 
 - **Primary:** Kaggle `thoughtvector/customer-support-on-twitter` (~3M
